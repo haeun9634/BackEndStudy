@@ -1,5 +1,5 @@
 package hello.hello_spring.repository;
-
+//단순 데이터 넣고 빼는 것
 import hello.hello_spring.domain.Member;
 
 import java.util.*;
