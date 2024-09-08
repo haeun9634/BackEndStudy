@@ -1,12 +1,13 @@
 package hello.hello_spring.repository;
 //단순 데이터 넣고 빼는 것
 import hello.hello_spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 //alt + 엔터
-
 
     //ctrl + space
     private static Map<Long, Member> store = new HashMap<>();

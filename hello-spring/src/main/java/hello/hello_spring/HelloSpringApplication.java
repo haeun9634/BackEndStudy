@@ -3,7 +3,7 @@ package hello.hello_spring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication //컴포너트 스캔 대상 아님
 public class HelloSpringApplication {
 
 	public static void main(String[] args) {
