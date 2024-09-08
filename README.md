@@ -14,3 +14,6 @@ Refactor This
 
 값 반환 단축키 Optional<Member> result = ~ 로 하는 것. 
 - Ctrl + ALT + V
+
+이전에 실행했떤거 실행
+- Shift + F10
