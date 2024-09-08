@@ -4,8 +4,11 @@ import hello.hello_spring.domain.Member;
 import hello.hello_spring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 //컴포넌트 스캔이기 때문에 오토와이어로 해야함. 스프링 빈으로 하면 안됨
@@ -30,8 +33,15 @@ public class MemberController {
 
         memberService.join(member);//멤버 가입
 
-        
         return "redirect:/";//회원 가입 끝나면 홈화면으로 돌림
+    }
+
+    @GetMapping("/members")
+    public String list(Model model){
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members",members);
+        return "members/memberList";
+        //model에서 memers라는 key에 members라는 리스트를 넣었음.
     }
 }
 //스프링 처음에 뜰때 스프링 컨테이너라는 스프링 통이 생기는데

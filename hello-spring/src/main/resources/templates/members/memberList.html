@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 이 members 읽어서 옴.
+            th:each는 루프를 돌면서 로직 실행
+            첫번째 객채를 하나 꺼내서 member에 담고 id랑 네임 출력. -->
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td><!-- 자동으로 getId() getName()으로 접근함-->
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
