@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
+//컴포넌트 스캔이기 때문에 오토와이어로 해야함. 스프링 빈으로 하면 안됨
 public class MemberController {
 
     private final MemberService memberService;
