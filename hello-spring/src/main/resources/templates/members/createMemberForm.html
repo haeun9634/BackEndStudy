@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <!-- form이라는 태그가 있는데 method는 post라 되어있음.
+     name="name"에서 "name"이 서버로 넘어오는 key임
+     여기에 text 적고 등록 넣으면 액션 url에 post방식으로 넘어옴!!!
+     그럼 다시 멤버컨트롤러에 postMapping-->
+    <form action="/members/new" method="post">
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>
