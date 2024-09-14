@@ -1,13 +1,12 @@
 package hello.hello_spring;
 
-import hello.hello_spring.repository.JdbcTemplaeMemberRepository;
+import hello.hello_spring.repository.JpaMemberRepository;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.service.MemberService;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
@@ -16,7 +15,7 @@ public class SpringConfig {
 
     /*
         @Autowired
-        DataSource datasource; //이렇게 하거나 */
+        DataSource datasource; //이렇게 하거나
 
     private DataSource dataSource;
 
@@ -24,7 +23,14 @@ public class SpringConfig {
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }//construct한것도 spring 빈이 관리하므로 자체적으로 자동으로 생성해줌
-    //연결할 수 잇는 정보 그런걸 알아서 주입해줄거임
+    //연결할 수 잇는 정보 그런걸 알아서 주입해줄거임 */
+
+
+    private EntityManager em;
+    @Autowired
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
 
     @Bean
     public MemberService memberService(){
@@ -36,6 +42,7 @@ public class SpringConfig {
 
         //return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplaeMemberRepository(dataSource);
+        //return new JdbcTemplaeMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }

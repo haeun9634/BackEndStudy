@@ -23,6 +23,7 @@ class MemberServiceIntegrationTest {
 
 
     @Test
+    //@Commit으로 확인도 가능
     void 회원가입() {
         //given 무언가 주어졌는데
         Member member = new Member();
